@@ -55,8 +55,18 @@ public class Customer {
 		return email_id;
 	}
 	public void setEmail_id(String email_id) {
-		this.email_id = validateEmail(email_id);
+	    do {
+	        this.email_id = validateEmail(email_id);
+	       // System.out.println(this.email_id);
+	       // System.out.println(email_id);
+	        if (!this.email_id.equals(email_id)) {
+	            System.out.println("Invalid email format. Please enter a valid email: ");
+	            Scanner sc = new Scanner(System.in);
+	            email_id = sc.next();
+	        }
+	    } while (!this.email_id.equals(email_id));
 	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -80,10 +90,8 @@ public class Customer {
 		        + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
 		if(patternMatches(email, regexPattern)) {
 			return email;
-		}
-		
-		return " ";
-			
+		}	
+		return " ";		
 	}
 	
 	private static void setCustomerValues(Customer c) {
@@ -103,7 +111,6 @@ public class Customer {
 		c.setPassword(password);	
 	}
 	
-	
 	private static void printCustomerDetails(Customer c) {
 		System.out.println("The id : "+c.getId());
 		System.out.println("The name : "+c.getName());
@@ -115,7 +122,7 @@ public class Customer {
 	private static void sortCustomerByNames(Customer[] c) {
 		Customer temp=null;
 		for(int i=0;i<c.length;i++) {
-			for(int j=i=1;j<c.length;j++) {
+			for(int j=i+1;j<c.length;j++) {
 				if(c[i].getName().compareTo(c[j].getName())>0) {
 					temp=c[i];
 					c[i]=c[j];
@@ -124,7 +131,5 @@ public class Customer {
 			}
 		}
 	}
-	
-
 	
 }
