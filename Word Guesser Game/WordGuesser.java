@@ -39,14 +39,14 @@ public class WordGuesser {
             }
 
             if (blankCopyRandomWord.equals(randomWord)) {
-                System.out.println("Congratulations! You guessed the word correctly in " + (10 - life) + " attempts!");
+                System.out.println("You guessed the word correctly in " + (10 - life) + " attempts!");
                 break;
             }
         }
 
         if (life == 0) {
-            System.out.println("No attempts left! The word was: " + randomWord);
-            System.out.println("Game Over! Better luck next time.");
+            System.out.println("No. of life exhausted! The word was: " + randomWord);
+            System.out.println("Game Over!");
         }
         sc.close();
     }
