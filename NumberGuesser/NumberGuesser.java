@@ -5,7 +5,6 @@ import java.util.Random;
 public class NumberGuesser {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
 		Random rn=new Random();
 		int randomNumber=rn.nextInt(101);
